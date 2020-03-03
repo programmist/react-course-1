@@ -4,13 +4,8 @@
 <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
 <script type="text/javascript">
   const rootElement = document.getElementById("root");
-  // const element = document.createElement("div");
-  // element.textContent = "Hello World";
-  // rootElement.appendChild(element);
-  const element = React.createElement("div", {
-    className: "container",
-    children: "Hello World",
-  });
-  ReactDOM.render(element, rootElement);
+  const element = document.createElement("div");
+  element.textContent = "Hello World";
+  rootElement.appendChild(element);
 </script>
 
