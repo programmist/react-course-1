@@ -4,13 +4,23 @@
 <script crossorigin src="https://unpkg.com/prop-types@15.7.2/prop-types.js"></script>
 <script crossorigin src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
 
+<!-- React class-based component example -->
 <script type="text/babel">
-  function SayHello(props) {
-    return (
-      <div>
-        Hello {props.firstName} {props.lastName}!
-      </div>
-    );
+  class SayHello extends React.Component {
+    // propTypes defined as static property of class
+    static propTypes = {
+      firstName: PropTypes.string.isRequired,
+      lastName: PropTypes.string.isRequired,
+    };
+
+    render() {
+      const {firstName, lastName} = this.props;
+      return (
+        <div>
+          Hello {firstName} {lastName}!
+        </div>
+      );
+    }
   }
 
   ReactDOM.render(
