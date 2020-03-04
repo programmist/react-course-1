@@ -1,0 +1,35 @@
+<body>
+  <style>
+    .box {
+      border: 2px solid black;
+    }
+
+    .box--large {
+      width: 120px;
+      height: 120px;
+    }
+
+    .box--medium {
+      width: 90px;
+      height: 90px;
+    }
+
+    .box--small {
+      width: 60px;
+      height: 60px;
+    }
+  </style>
+
+  <div id="root"></div>
+  <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <script crossorigin src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+
+  <script type="text/babel">
+    const element = <div>Put a box here</div>
+    ReactDOM.render(
+      element,
+      document.getElementById("root"),
+    );
+  </script>
+</body>
