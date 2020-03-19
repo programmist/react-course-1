@@ -30,11 +30,28 @@ I'm happy to help with project ideas, but would ask that projects be chosen such
 ### A Note on Project Structure:
 The capstone project will be completed using a more idomatic, real-world React project structure, rather than embedded within a `<script>` tag within an HTML file, as the lessons do. I will demonstrate a simple way to achieve this using a CLI tool called **Create React App** (more info in `20-bonus` folder).
 
+# Resources
+
+## React
+- [React Docs](https://reactjs.org/docs/hello-world.html)
+  - The **Main Concepts**, and **API Reference** menus are most relevent to this tutorial
+
+### React Developer Tools
+The `React Developer Tools` browser extension, which aids in inspecting and debugging React code in your browser, does not work correctly with the code in these HTML files. Unfortunately there is no work-around for this due to the way the code is structured inside `<script>` tags within HTML files. Information on how to install and use this extension has been added to the `20-bonus` directory, and will also be discussed near the end of the course using some sample code. You'll also have the opportunity to use this extension with your capstone project.
+
+## JavaScript
+- [MDN JavaScript Documentation Home Page](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+  - A good starting point to digging into JS. Check out the menus in the **Related Topics** left-sidebar for subtopics such as **Complete Beginners**, **JavaScript Guide**, **Intermediate**, **Advanced**, etc.
+
+- [JavaScript for Impatient Programmers](https://exploringjs.com/impatient-js/index.html)
+  - Covers JS, but starts with modern features (through ES2019, the most recently-released language specification).
+- [Speaking Javascript (free online book)](http://speakingjs.com/es5/index.html)
+  - Covers JS from version ES1 through ES5. Doesn't cover any of the newer features from 2015 or later.
+- [More Online JS books by Dr. Rauschmayer](https://exploringjs.com/)
+
+
 ## Browser Developer Tools
 You can use your browser's developer tools to inspect and debug the code and its output. If you are unfamiliar with the developer tools for your browser, you can find more information here:
 - [Chrome DevTools](https://developers.google.com/web/tools/chrome-devtools)
 - [Firefox Developer Tools](https://developer.mozilla.org/en-US/docs/Tools)
 - [Microsoft Edge Developer Tools](https://docs.microsoft.com/en-us/microsoft-edge/devtools-guide)
-
-## React Developer Tools
-The `React Developer Tools` browser extension, which aids in inspecting and debugging React code in your browser, does not work correctly with the code in these HTML files. Unfortunately there is no work-around for this due to the way the code is structured inside `<script>` tags within HTML files. Information on how to install and use this extension has been added to the `20-bonus` directory, and will also be discussed near the end of the course using some sample code. You'll also have the opportunity to use this extension with your capstone project.
