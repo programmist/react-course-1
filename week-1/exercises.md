@@ -22,7 +22,7 @@
 5. Using the boilerplate code from exercise 1, create a functional React component (see lesson 4) called `<TimeGreeting>`, which displays the current time along with a name, which is passed in using a prop called `name` (See notes below). e.g.
 
 ```jsx
-// Output: Hello Tony. The current datetime is Fri Apr 1 2020 17:41:08
+// Output: Hello Tony. The current time is 12:29:12 PM
 <TimeGreeting name="Tony" />
 ```
 
@@ -37,14 +37,16 @@ const name = "Tony"
 console.log(`Hello ${name}`)
 ```
 
-You can display the current date and time using the Javascript built-in `Date` class.
+You can display the current time using the Javascript built-in `Date` class' `toLocaleTimeString` method.
 ```js
-// Output: Fri Apr 1 2020 17:41:08 GMT-0500 (Central Daylight Time)
-console.log(new Date())
+const currentTime = new Date().toLocaleTimeString()
+// Output (will obviously vary): 12:29:12 PM
+console.log(currentTime)
 ```
 
-The output of the `Date` constructor can also be used within template literals.
+The output of `toLocaleTimeString` can also be used within template literals.
 ```js
-// Output: The current datetime is Fri Apr 1 2020 17:41:08 GMT-0500 (Central Daylight Time)
-console.log(`The current datetime is ${new Date()}`)
+const currentTime = new Date().toLocaleTimeString()
+// Output: The current time is 12:29:12 PM
+console.log(`The current time is ${currentTime}`)
 ```
