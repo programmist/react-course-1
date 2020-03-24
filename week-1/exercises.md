@@ -27,26 +27,9 @@
 ```
 
 ## Notes
-Using [Javascript Template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) you can insert strings or other values (including variables and React props) into a static string "template."
-
-> Note: Template strings use the backtick (`) character at the beginning and end, instead of quotes like normal strings.
-
-```js
-const name = "Tony"
-// Output: Hello Tony
-console.log(`Hello ${name}`)
-```
-
 You can display the current time using the Javascript built-in `Date` class' `toLocaleTimeString` method.
 ```js
 const currentTime = new Date().toLocaleTimeString()
 // Output (will obviously vary): 12:29:12 PM
 console.log(currentTime)
-```
-
-The output of `toLocaleTimeString` can also be used within template literals.
-```js
-const currentTime = new Date().toLocaleTimeString()
-// Output: The current time is 12:29:12 PM
-console.log(`The current time is ${currentTime}`)
 ```
