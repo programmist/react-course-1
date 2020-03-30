@@ -38,6 +38,10 @@ The capstone project will be completed using a more idomatic, real-world React p
   - [Introducing JSX](https://reactjs.org/docs/introducing-jsx.html)
   - [JSX In Depth (advanced)](https://reactjs.org/docs/jsx-in-depth.html)
 
+## Babel
+- [Try it Out (repl)](https://babeljs.io/repl)
+- [Docs](https://babeljs.io/docs/en/)
+
 ### React Developer Tools
 The `React Developer Tools` browser extension, which aids in inspecting and debugging React code in your browser, does not work correctly with the code in these HTML files. Unfortunately there is no work-around for this due to the way the code is structured inside `<script>` tags within HTML files. Information on how to install and use this extension has been added to the `20-bonus` directory, and will also be discussed near the end of the course using some sample code. You'll also have the opportunity to use this extension with your capstone project.
 
