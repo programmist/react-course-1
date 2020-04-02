@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Week 2 Exercise Solutions</title>
+  <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <script crossorigin src="https://unpkg.com/prop-types@15.7.2/prop-types.js"></script>
+  <script crossorigin src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+</head>
+<body>
+  <div id="container">
+    <section id="week2-e1">
+      <h2>Exercise 1 & 2</h2>
+      <div id="root"></div>
+      <script type="text/babel">
+        function TimeGreeting(props) {
+          const currentTime = new Date().toLocaleTimeString();
+          return (
+            <div>
+              Hello {props.name} the current time is {currentTime}!
+            </div>
+          );
+        }
+
+        TimeGreeting.propTypes = {
+          name: PropTypes.string.isRequired,
+        };
+
+        const rootElement = document.getElementById("root");
+        ReactDOM.render(
+          <TimeGreeting name="Gavin" />,
+          rootElement,
+        );
+      </script>
+    </section>
+
+    <section id="week2-e3">
+      <h2>Exercise 3</h2>
+      <ul id="grocery-list"></ul>
+      <script type="text/babel">
+        function GroceryList(props) {
+          return (
+            <React.Fragment>
+              <li>olive oil</li>
+              <li>avacados</li>
+              <li>apples</li>
+            </React.Fragment>
+          );
+        }
+
+        const listElement = document.getElementById("grocery-list");
+        ReactDOM.render(
+          <GroceryList />,
+          listElement,
+        );
+      </script>
+    </section>
+  </div>
+</body>
+</html>
