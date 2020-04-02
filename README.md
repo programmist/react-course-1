@@ -28,7 +28,7 @@ At the end of the course, those who would like to, can participate in a "capston
 I'm happy to help with project ideas, but would ask that projects be chosen such that development time is no more than 2-3 weeks. During that time I will make myself available for questions and help during scheduled blocks that I'll add to my calendar. Once projects are complete, I'll be available to do final code reviews.
 
 ### A Note on Project Structure:
-The capstone project will be completed using a more idomatic, real-world React project structure, rather than embedded within a `<script>` tag within an HTML file, as the lessons do. I will demonstrate a simple way to achieve this using a CLI tool called **Create React App** (more info in `20-bonus` folder).
+The capstone project will be completed using a more idiomatic, real-world React project structure, rather than embedded within a `<script>` tag within an HTML file, as the lessons do. I will demonstrate a simple way to achieve this using a CLI tool called **Create React App**. Please see the [`create-react-app.md`](https://github.com/programmist/react-course-1/blob/master/create-react-app.md) file in the repository root file for more information.
 
 # Resources
 
