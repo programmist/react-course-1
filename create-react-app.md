@@ -14,7 +14,7 @@ Once the command is finished you can start the project by changing directories t
 
 ```bash
 $ cd my-app
-$ cd npm start
+$ npm start
 ```
 
 See the [Getting Started](https://create-react-app.dev/docs/getting-started) documentation for more information
