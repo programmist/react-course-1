@@ -1,6 +1,10 @@
 # Week 1 Recitation
 
 ## Exercise Solutions
+See [`react-course-1/week-2/exercise-solutions.html`](https://github.com/programmist/react-course-1/blob/master/week-2/exercise-solutions.md)
+
+## Create React App CLI
+ See [`react-course-1/create-react-app.md`](https://github.com/programmist/react-course-1/blob/master/create-react-app.md)
 
 ## Notes
 
