@@ -1,0 +1,79 @@
+<body>
+<div id="root"></div>
+<script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+<script crossorigin src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+<style>
+  .output {
+    color: red;
+  }
+
+  input {
+    width: 500;
+  }
+</style>
+<script type="text/babel">
+  class App extends React.Component {
+    state = {outputText: ""};
+
+    handleChange = (event) => {
+      const inputText = event.target.value;
+      // use this.setState to set the value of outputText to that of inputText
+    }
+
+    render() {
+      return (
+        <div>
+          <div>
+            <input
+              type="text"
+              // add an onChange prop here that references this.handleChange
+            />
+          </div>
+          <br />
+          <label>You typed:
+            <p className="output">
+              // Use JSX interpolation (i.e. {}) to insert the value of this.state.outputText here
+            </p>
+          </label>
+      </div>
+      )
+    }
+  }
+
+  ReactDOM.render(
+    <App />,
+    document.getElementById('root'),
+  )
+
+  function App() {
+    return (
+      <div>
+        <p>
+          There have been {state.eventCount} events
+        </p>
+        <p>
+          <button>⚛️</button>
+        </p>
+        <p>You typed: {state.username}</p>
+        <p>
+          <input />
+        </p>
+      </div>
+    )
+  }
+
+  function setState(newState) {
+    Object.assign(state, newState)
+    renderApp()
+  }
+
+  function renderApp() {
+    ReactDOM.render(
+      <App />,
+      document.getElementById('root'),
+    )
+  }
+  renderApp()
+</script>
+</body>
