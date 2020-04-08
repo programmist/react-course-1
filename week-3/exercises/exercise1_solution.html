@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 1</title>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script crossorigin src="https://unpkg.com/prop-types@15.7.2/prop-types.js"></script>
+    <script crossorigin src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+    <style>
+      .box {
+        border: 2px solid black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .box--medium {
+        width: 90px;
+        height: 90px;
+      }
+
+      .red {
+        background-color: red;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+      class Box extends React.Component {
+        state = {isRed: false};
+
+        handleClick = () => {
+          if (this.state.isRed) {
+            this.setState({isRed: false});
+          } else {
+            this.setState({isRed: true});
+          }
+          // Instead of if-then, I could use:
+          // this.setState({isRed: !this.state.isRed})
+        }
+
+        render() {
+          return (
+            <div
+              className={`box box--medium ${this.state.isRed ? "red" : ""}`}
+              onClick={this.handleClick}
+            >
+              {this.props.label}
+            </div>
+          )
+        }
+      }
+
+      ReactDOM.render(
+        <Box label="Box1" />,
+        document.getElementById('root'),
+      )
+    </script>
+  </body>
+</html>
+
+
