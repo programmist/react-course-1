@@ -72,7 +72,7 @@ In order to stop the timer once the component has been unmounted, we use the `co
 
 ```jsx
 class Clock extends React.Component {
-  state = {time: new Date()}
+  state = {time: new Date().toLocaleTimeString()}
 
   componentDidMount() {
     this.timerID = setInterval(
@@ -89,7 +89,7 @@ class Clock extends React.Component {
     return (
       <div>
         <h1>Hello, world!</h1>
-        <h2>It is {this.state.time}.</h2>
+        <h2>It is {this.state.time}</h2>
       </div>
     );
   }
