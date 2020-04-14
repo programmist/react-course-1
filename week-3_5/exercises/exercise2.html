@@ -1,0 +1,48 @@
+<body>
+<div id="root"></div>
+<script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+<script crossorigin src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+<style>
+  .output {
+    color: red;
+  }
+
+  input {
+    width: 500;
+  }
+</style>
+<script type="text/babel">
+  function App() {
+    // Put your React.useState code here
+    // Create "outputText" state variable and "setOutputText" setter function
+
+    const handleChange = (event) => {
+      const inputText = event.target.value;
+      // set outputText state using setOutputText function
+    }
+
+    return (
+      <div>
+        <div>
+          <input
+            type="text"
+            onChange={handleChange}
+          />
+        </div>
+        <br />
+        <label>You typed:
+          <p className="output">
+            {outputText}
+          </p>
+        </label>
+      </div>
+    )
+  }
+
+  ReactDOM.render(
+    <App />,
+    document.getElementById('root'),
+  )
+</script>
+</body>

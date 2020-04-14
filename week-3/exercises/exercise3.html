@@ -45,35 +45,5 @@
     <App />,
     document.getElementById('root'),
   )
-
-  function App() {
-    return (
-      <div>
-        <p>
-          There have been {state.eventCount} events
-        </p>
-        <p>
-          <button>⚛️</button>
-        </p>
-        <p>You typed: {state.username}</p>
-        <p>
-          <input />
-        </p>
-      </div>
-    )
-  }
-
-  function setState(newState) {
-    Object.assign(state, newState)
-    renderApp()
-  }
-
-  function renderApp() {
-    ReactDOM.render(
-      <App />,
-      document.getElementById('root'),
-    )
-  }
-  renderApp()
 </script>
 </body>
