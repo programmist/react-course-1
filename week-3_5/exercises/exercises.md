@@ -1,4 +1,4 @@
-# Week 3 Exercises
+# Week 3.5 Exercises
 
 1. 
     This exercise reuses the familiar `Box` component from the `week-3/exercises/exercise1.html`. `Box` has been converted from a class to a function component, but the implementation is not yet complete. Please use the `React.useState` to complete this component.
