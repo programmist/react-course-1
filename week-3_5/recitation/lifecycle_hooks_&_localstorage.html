@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lifecycle</title>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script crossorigin src="https://unpkg.com/prop-types@15.7.2/prop-types.js"></script>
+    <script crossorigin src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+
+      function Clock () {
+        const [name, setName] = React.useState(
+          () => window.localStorage.getItem("name")
+        )
+        const [time, setTime] = React.useState(
+          new Date().toLocaleTimeString()
+        );
+
+        // Run after every render
+        React.useEffect(() => {
+          window.localStorage.setItem("name", name)
+        })
+
+        // Run once, only after the first render
+        React.useEffect(() => {
+          const timerID = setInterval(
+            () => setTime(new Date().toLocaleTimeString()),
+            1000
+          );
+
+          // Clean up to prevent memory leaks (like componentWillUnmount)
+          return function() {
+            clearInterval(timerID);
+          }
+        }, []);
+
+        const handleChange = (event) => setName(event.target.value)
+
+        return (
+          <div>
+            <h1>Hello, {name}!</h1>
+            <h2>It is {time}</h2>
+            <form>
+              <label htmlFor="name">Name: </label>
+              <input value={name} onChange={handleChange} id="name" />
+            </form>
+          </div>
+        );
+      }
+
+      ReactDOM.render(
+        <Clock />,
+        document.getElementById('root'),
+      )
+
+    </script>
+  </body>
+</html>
+
+
