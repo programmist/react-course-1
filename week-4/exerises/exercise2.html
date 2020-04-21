@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Form</title>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script crossorigin src="https://unpkg.com/prop-types@15.7.2/prop-types.js"></script>
+    <script crossorigin src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+    <style>
+      input:focus {
+          outline-offset: 0;
+      }
+      input:focus {
+          outline: none;
+      }
+      input {
+        border: 1px solid black;
+        padding: 2px;
+      }
+      input.invalid {
+        border: 1px solid #dc3545;
+      }
+      .error {
+        color: red;
+      }
+      small {
+        height: 15px;
+        font-size: x-small;
+        display:block;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+
+      class EmailForm extends React.Component {
+        state = {email: ""}
+
+        // create handleSubmit
+
+        render() {
+          const { email } = this.state;
+
+          return (
+            <div>
+              <div>
+                <h1>Email: {email}</h1>
+              </div>
+              <form /* add onSubmit prop */ >
+                <div>
+                  <input
+                    // add ref: this.inputRef
+                    name="email"
+                    type="text"
+                    placeholder="Email"
+                  />
+                </div>
+                <div>
+                  <button type="submit">
+                    Submit
+                  </button>
+                </div>
+              </form>
+            </div>
+          )
+        }
+      }
+
+      ReactDOM.render(
+        <EmailForm />,
+        document.getElementById('root'),
+      )
+
+    </script>
+  </body>
+</html>
+
+

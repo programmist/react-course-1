@@ -1,0 +1,50 @@
+<body>
+<div id="root"></div>
+<script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+<script crossorigin src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+<style>
+  .output {
+    color: red;
+  }
+
+  input {
+    width: 500;
+  }
+</style>
+<script type="text/babel">
+  class App extends React.Component {
+    state = {outputText: ""};
+
+    handleChange = () => {
+      // Use this.setState to set the value of outputText
+      // get the value from this.inputRef.value
+    }
+
+    render() {
+      return (
+        <div>
+          <div>
+            <input
+              type="text"
+              onChange={this.handleChange}
+              // Use the ref prop here to create a reference called this.inputRef
+            />
+          </div>
+          <br />
+          <label>You typed:
+            <p className="output">
+              {this.state.outputText}
+            </p>
+          </label>
+      </div>
+      )
+    }
+  }
+
+  ReactDOM.render(
+    <App />,
+    document.getElementById('root'),
+  )
+</script>
+</body>

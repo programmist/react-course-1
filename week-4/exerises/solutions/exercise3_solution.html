@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Form</title>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script crossorigin src="https://unpkg.com/prop-types@15.7.2/prop-types.js"></script>
+    <script crossorigin src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+    <style>
+      input:focus {
+          outline-offset: 0;
+      }
+      input:focus {
+          outline: none;
+      }
+      input {
+        border: 1px solid black;
+        padding: 2px;
+      }
+      input.invalid {
+        border: 1px solid #dc3545;
+      }
+      .error {
+        color: red;
+      }
+      small {
+        height: 15px;
+        font-size: x-small;
+        display:block;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+
+      const emailMatcher = /[\w._%+-]+@[\w.-]+\.[\w]{2,4}/
+      const validateEmail = (email = "") => {
+        return emailMatcher.test(email)
+      }
+
+      class EmailForm extends React.Component {
+        state = {
+          email: "",
+          isEmailValid: false,
+        }
+
+        handleSubmit = (event) =>  {
+          event.preventDefault()
+          this.setState({email: this.inputRef.value});
+        }
+
+        handleChange = (event) => {
+          const currentVal = this.inputRef.value;
+          this.setState({
+            isEmailValid: validateEmail(currentVal)
+          })
+        }
+
+        render() {
+          const { email, isEmailValid } = this.state;
+
+          return (
+            <div>
+              <div>
+                <h1>Email: {email}</h1>
+              </div>
+              <form onSubmit={this.handleSubmit}>
+                <div>
+                  <input
+                    ref={(ref) => this.inputRef = ref}
+                    name="email"
+                    type="text"
+                    placeholder="Email"
+                    onChange={this.handleChange}
+                    className={isEmailValid ? "" : "invalid"}
+                  />
+                </div>
+                <small className="error">
+                  {isEmailValid ? "" : "Enter a valid email address"}
+                </small>
+                <div>
+                  <button
+                    type="submit"
+                    disabled={!isEmailValid}
+                  >
+                    Submit
+                  </button>
+                </div>
+              </form>
+            </div>
+          )
+        }
+      }
+
+      ReactDOM.render(
+        <EmailForm />,
+        document.getElementById('root'),
+      )
+
+    </script>
+  </body>
+</html>
+
+
