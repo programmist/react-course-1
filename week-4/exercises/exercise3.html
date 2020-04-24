@@ -36,6 +36,11 @@
     <div id="root"></div>
     <script type="text/babel">
 
+      const emailMatcher = /[\w._%+-]+@[\w.-]+\.[\w]{2,4}/
+      const validateEmail = (email = "") => {
+        return emailMatcher.test(email)
+      }
+
       class EmailForm extends React.Component {
         state = {
           email: "",
