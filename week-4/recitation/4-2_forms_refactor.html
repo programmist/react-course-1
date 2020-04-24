@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Form</title>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script crossorigin src="https://unpkg.com/prop-types@15.7.2/prop-types.js"></script>
+    <script crossorigin src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+    <style>
+      input:focus {
+          outline-offset: 0;
+      }
+      input:focus {
+          outline: none;
+      }
+      input {
+        border: 1px solid black;
+        padding: 2px;
+      }
+      .error {
+        color: red;
+      }
+      small {
+        height: 15px;
+        font-size: x-small;
+        display:block;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+
+      const emailMatcher = /[\w._%+-]+@[\w.-]+\.[\w]{2,4}/
+      const validateEmail = (email = "") => {
+        return emailMatcher.test(email)
+      }
+
+      function ValidatedTextInput({name, placeholder = "Email", onChange, validator}) {
+        const inputRef = React.useRef()
+        const [isValid, setIsValid] = React.useState("")
+
+        const handleChange = () => {
+          const value = inputRef.current.value;
+          const isValid = validateEmail(value);
+          setIsValid(isValid);
+          onChange({
+            [name]: {value, isValid}
+          });
+        }
+
+        return (
+          <input
+            ref={inputRef}
+            name={name}
+            type="text"
+            placeholder={placeholder}
+            onChange={handleChange}
+            style={!isValid ? {border: "1px solid #dc3545"} : {}}
+          />
+        )
+      }
+
+      ValidatedTextInput.propTypes = {
+        name: PropTypes.string.isRequired,
+        placeholder: PropTypes.string,
+        onChange: PropTypes.func.isRequired,
+        validator: PropTypes.func.isRequired,
+      }
+
+      function EmailForm() {
+        const [email, setEmail] = React.useState("");
+        const [emailError, setEmailError] = React.useState(true);
+
+        const handleChange = ({email}) => {
+          const {value, isValid} = email;
+          setEmailError(!isValid);
+          setEmail(isValid ? value : "");
+        }
+
+        return (
+          <div>
+            <div>
+              <h1>Email: {email}</h1>
+            </div>
+            <form>
+              <div>
+                <ValidatedTextInput
+                  name="email"
+                  placeholder="Email"
+                  onChange={handleChange}
+                  validator={validateEmail}
+                />
+              </div>
+              <small className="error">
+                {emailError ? "Enter a valid email": null}
+              </small>
+            </form>
+          </div>
+        )
+      }
+
+      ReactDOM.render(
+        <EmailForm />,
+        document.getElementById('root'),
+      )
+
+    </script>
+  </body>
+</html>
