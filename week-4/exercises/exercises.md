@@ -1,7 +1,7 @@
 # Week 4 Exercises
 
 1. 
-    Change this familiar input example from weeks 3 and 3.5 to use ` ref instead of `event.target`. 
+    Change this familiar input example from weeks 3 and 3.5 to use `ref` instead of `event.target`.
 
       **a.** Use the `ref` prop to create a reference to the input element called `this.inputRef`
 
