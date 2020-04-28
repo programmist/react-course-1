@@ -38,7 +38,7 @@ console.log(lastNames)
 There are a couple of things worth noting about the `map` function. First, `map` always returns a new array (It doesn't change the original). Even if you created a map function that didn't make any changes to the returned elements, the array that is returned is still a copy of the original. The second (probably obvious) thing to note is that the array returned by `map` will always be the same size as the original. Every element in the original array maps to an analog in the second array.
 
 #### 1. Rendering Lists
-In React, the idiomatic way of rendering arrays of things is to the Array `map` function. For instance, using the `users` array from the previous section, we could create a list of links to github profiles.
+In React, the idiomatic way of rendering arrays of things is to use the Array `map` function. For instance, using the `users` array from the previous section, we could create a list of links to github profiles.
 
 ```jsx
 function Users({users}) {

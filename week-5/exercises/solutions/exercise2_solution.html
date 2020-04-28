@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Exercise 1</title>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script crossorigin src="https://unpkg.com/prop-types@15.7.2/prop-types.js"></script>
+    <script crossorigin src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+    <style>
+      .list-out {
+        margin-top: 15px;
+      }
+      input {
+        margin-right: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <ul id="grocery-list"></ul>
+    <script type="text/babel">
+      function GroceryList({groceries}) {
+        return (
+          <React.Fragment>
+            {groceries.map((item) => <li key={item}>{item}</li>)}
+          </React.Fragment>
+        );
+      }
+
+      function App() {
+        const [groceries, setGroceries] = React.useState([])
+        const inputRef = React.useRef()
+
+        const addItem = (event) => {
+          event.preventDefault();
+          setGroceries([...groceries, inputRef.current.value])
+          inputRef.current.value = "";
+        }
+
+        return (
+          <form onSubmit={addItem}>
+            <input
+              ref={inputRef}
+              name="grocery-item"
+              type="text"
+              placeholder="Add Item"
+            />
+            <button type="submit">Add</button>
+            <div className="list-out">
+              <GroceryList groceries={groceries} />
+            </div>
+          </form>
+        )
+      }
+
+      ReactDOM.render(
+        <App />,
+        document.getElementById("grocery-list"),
+      );
+    </script>
+  </body>
+</html>
