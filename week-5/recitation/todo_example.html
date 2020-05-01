@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Exercise 1</title>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script crossorigin src="https://unpkg.com/prop-types@15.7.2/prop-types.js"></script>
+    <script crossorigin src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+    <style>
+      .todo-out {
+        margin-top: 15px;
+      }
+      button {
+        margin-right: 5px
+      }
+      input {
+        margin-right: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <ul id="root"></ul>
+    <script type="text/babel">
+
+      function ToDoList() {
+        const [todos, setTodos] = React.useState(
+          () => JSON.parse(window.localStorage.getItem('todos') || "[]")
+        )
+
+        React.useEffect(() => {
+          window.localStorage.setItem('todos', JSON.stringify(todos))
+        })
+
+        const todoRef = React.useRef()
+
+        const clearList = () => setTodos([]);
+
+        const addTodo = (event) => {
+          event.preventDefault()
+          const todo = todoRef.current.value.trim();
+          const isDup = todos.includes(todo);
+          if (todo !== "" && !isDup) {
+            setTodos([...todos, todoRef.current.value])  
+          }
+          todoRef.current.value = "";
+        }
+
+        return (
+          <form onSubmit={addTodo}>
+            <input
+              ref={todoRef}
+              name="todo"
+              type="text"
+              placeholder="Add a Todo Item"
+            />
+            <button type="submit">Add</button>
+            <button type="button" onClick={clearList}>Clear</button>
+            <ul className="todo-out">
+              {todos.map((item) => <li key={item}>{item}</li>)}
+            </ul>
+          </form>
+        );
+      }
+
+      ReactDOM.render(
+        <ToDoList />,
+        document.getElementById("root"),
+      );
+    </script>
+  </body>
+</html>

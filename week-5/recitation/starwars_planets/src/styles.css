@@ -1,0 +1,23 @@
+/* Base styles */
+li {
+  font-weight: normal;
+  font-size: 18px;
+  color: #000;
+}
+
+/* Highlights planets which have a "temperate" climate */
+.temperate {
+  color: #14bd14;
+  font-weight: bold;
+}
+
+li {
+  list-style-type: none;
+}
+
+li:before {
+  content: url("/img/d-star.png");
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 0.5em;
+}
