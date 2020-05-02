@@ -1,9 +1,19 @@
 .todo-out {
   margin-top: 15px;
 }
+
 button {
   margin-right: 5px;
 }
+
 input {
   margin-right: 5px;
+}
+
+li:hover .destroy:after {
+  content: "×";
+}
+
+button.destroy {
+  border: 0;
 }

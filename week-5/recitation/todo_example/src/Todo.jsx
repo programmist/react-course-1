@@ -4,11 +4,9 @@ import "./styles.css";
 /**
  * Represents one Todo item. Clicking on the Todo allows editing content
  *
- * TODO: Allow deleting
- *
  * @param {string} todo
  */
-export default function Todo({ todo, onTodoEdit }) {
+export default function Todo({ todo, onTodoEdit, onDelete }) {
   const [isEditing, setIsEditing] = useState(false);
   const inputRef = useRef();
 
@@ -41,8 +39,12 @@ export default function Todo({ todo, onTodoEdit }) {
     }
   };
 
+  const handleDelete = () => {
+    onDelete(todo);
+  };
+
   return (
-    <li onClick={startEdit} onKeyDown={handleEnterEsc}>
+    <li onKeyDown={handleEnterEsc}>
       {isEditing ? (
         <input
           ref={inputRef}
@@ -51,8 +53,9 @@ export default function Todo({ todo, onTodoEdit }) {
           onBlur={updateTodo}
         />
       ) : (
-        <span>{todo}</span>
+        <span onClick={startEdit}>{todo}</span>
       )}
+      <button onClick={handleDelete} className="destroy"></button>
     </li>
   );
 }

@@ -5,14 +5,12 @@ import "./styles.css";
 /**
  * Displays a Todo list
  *
- * Current Features:
+ * Features:
  *   - Add to the list
  *   - Edit item in place
+ *   - Delete individual list items
  *   - Clear the list
  *   - Auto-save list
- *
- * TODO: Delete individual list items
- *
  */
 export default function TodoList() {
   const [todos, setTodos] = useState(
@@ -43,6 +41,10 @@ export default function TodoList() {
     setTodos(todosCopy);
   };
 
+  const deleteTodo = (todoToDelete) => {
+    setTodos(todos.filter((todo) => todo !== todoToDelete));
+  };
+
   return (
     <form onSubmit={addTodo}>
       <input
@@ -57,7 +59,12 @@ export default function TodoList() {
       </button>
       <ul className="todo-out">
         {todos.map((item) => (
-          <Todo key={item} todo={item} onTodoEdit={editTodo} />
+          <Todo
+            key={item}
+            todo={item}
+            onTodoEdit={editTodo}
+            onDelete={deleteTodo}
+          />
         ))}
       </ul>
     </form>
