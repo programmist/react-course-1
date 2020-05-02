@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
+import Todo from "./Todo";
 import "./styles.css";
 
 /**
@@ -6,15 +7,14 @@ import "./styles.css";
  *
  * Current Features:
  *   - Add to the list
+ *   - Edit item in place
  *   - Clear the list
- *
- * Requested features:
- *   - Edit list items
- *   - Delete individual list items
  *   - Auto-save list
  *
+ * TODO: Delete individual list items
+ *
  */
-export default function ToDoList() {
+export default function TodoList() {
   const [todos, setTodos] = useState(
     () => JSON.parse(window.localStorage.getItem("todos")) || []
   );
@@ -37,6 +37,12 @@ export default function ToDoList() {
     todoRef.current.value = "";
   };
 
+  const editTodo = (prev, current) => {
+    const todosCopy = [...todos];
+    todosCopy[todos.indexOf(prev)] = current;
+    setTodos(todosCopy);
+  };
+
   return (
     <form onSubmit={addTodo}>
       <input
@@ -51,7 +57,7 @@ export default function ToDoList() {
       </button>
       <ul className="todo-out">
         {todos.map((item) => (
-          <li key={item}>{item}</li>
+          <Todo key={item} todo={item} onTodoEdit={editTodo} />
         ))}
       </ul>
     </form>

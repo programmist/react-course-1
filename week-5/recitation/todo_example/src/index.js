@@ -1,8 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-import ToDoList from "./ToDoList";
+import TodoList from "./TodoList";
 
 const rootElement = document.getElementById("root");
 
-ReactDOM.render(<ToDoList />, rootElement);
+ReactDOM.render(<TodoList />, rootElement);
